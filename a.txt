@@ -1,1 +1,11 @@
-aaaaaaaa
+public class Dgui{
+		//栈 先进后出
+		public int number(int a){
+			if(a==1){
+			return 1;
+		}
+		return a*number(a-1);
+
+	}
+
+}
