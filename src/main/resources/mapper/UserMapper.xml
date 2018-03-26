@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kaisheng.mapper.UserMapper">
+
+   <!-- <select id="findById" parameterType="map" resultMap="User">
+        select * from t_publish where
+        <if test="publish !=null and publish !=''" >
+              publish = #{publish}
+        </if>
+        <if test="pname !=null and pname !=''">
+            pname = #{pname}
+        </if>
+     </select>-->
+    <!--par...type 参数  resultType = 返回类型-->
+    <select id="findAll" resultType="User">
+        select * from t_publish
+    </select>
+
+    <select id="findById" parameterType="int"  resultType="User">
+        SELECT * from  t_publish where id = #{id};
+    </select>
+
+    <select id ="update"  parameterType="User" resultType="int">
+        update t_publish set publishname = #{publishname}, address = #{address}, tel = #{tel}, pname = #{pname}
+         where id = #{id};
+    </select>
+
+
+   <!-- <resultMap id="findall" type="com.kaisheng.entity.User">
+        <id  column="id" property="id"/>
+        <result column="publish" property="publish"/>
+        <result column="address" property="address"/>
+        <result column="tel" property="tel"/>
+        <result column="pname" property="pname"/>
+    </resultMap>-->
+    <!--<select id="findByid" parameterType="int" resultMap="findall">
+        select * from  t_publish where id = #{}
+    </select>-->
+
+
+</mapper>
