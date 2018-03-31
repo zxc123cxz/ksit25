@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        id 是别名
+        class 是完全限定名  由class指定所处的位置赋予id的别名
+        name  是指支持逗号，分割的别名(跟id一样也是别名)
+        lazy-init（true）指的是在调用gitBean的时候再创建Bean的实例（Spring容器中的Bean默认为单列）
+        init-method 是在spring初始化的时候，指定哪个方法初始化（init-method = “”）
+        scope ：singleton指的是Bean在容器中为单列
+                prototype 指的是Bean在容器中非单列
+
+
+        如何在调用getBean时候在创建类的实列化？
+        在调用getBean获取对象的之前，会自动生成实例化，创建一个对象，运行时会先调用构造方法
+        如果在调用getBean()的时候再调用类的实例：
+        iazy-init（true）: 在调用getBean的时猴，再创建类的实例(Bean默认为单列模式，每次调用一次对象，都会产生一个对象，调用一次构造方法)
+        scope属性：默认为singleton，表示为单列   prototype表示为非单列模式
+       -->
+      <bean id = "userDao" class="com.kaishengit.entity.UserDao" init-method="init" lazy-init="true"
+    scope="prototype" name = "userDao2,userDao3" >
+
+    </bean>
+
+
+
+
+
+
+
+
+
+</beans>
+
+

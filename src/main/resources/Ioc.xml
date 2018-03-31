@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        set注入需要 ： 注入的对象必须带有set方法
+        注入的对象和被注入的对象都要注入到spring中
+        控制反转：（通俗易懂）本来自己可以通过new关键字 创建的对象，却教给了spring做了
+        依赖注入（DI）：三种方式 name index type
+
+
+        name : 指的是构造参数   目前都是靠name属性 来当建立关系的桥梁 而ref都是
+        ref ：指的是userbean的id
+
+        被注入个注入： 注入就是把自身对象 给被注入（被注入中，创建一个对象）
+                       然后被注入
+    -->
+    <!--
+        set注入 :
+        name : 指的是User类中 set..()去掉set首字母小写  value指的是给的值
+    -->
+  <!--  <bean id= "userDao" class="com.kaishengit.entity.UserDao" autowire="byType">
+        <property name="user" ref="user"/>
+    </bean>
+-->
+
+
+    
+   <!-- <bean id="user" class="com.kaishengit.entity.User">
+
+        <property name="id" value ="110"/>
+           <property name="name" value = "龙龙"/>
+           <property name="score" value="99.9"/>
+           <property name="nameList">
+               <list>
+                   <value>abc</value>
+                   <value>def</value>
+               </list>
+           </property>
+           <property name="numSet">
+               <set>
+                   <value>147</value>
+                   <value>852</value>
+               </set>
+           </property>
+          <property name="map">
+              <map>
+                  <entry key="abc" value-ref="user"/>
+                  <entry key="def" value-ref="user"/>
+              </map>
+          </property>
+        <property name="properties">
+            <props>
+                <prop key = "key1">k1</prop>
+                <prop key = "key2">k2</prop>
+            </props>
+        </property>
+    </bean>-->
+
+
+
+
+
+    <!--
+        构造方法 注入三种方式 ：
+        name : 指的是构造方法的参数
+        index ：构造方法参数的索引 从零开始
+        type ： 构造方法的参数类型的完全限定名
+        ref：指的是被注入的Bean在spring容器中的id
+    -->
+
+    <!-- <bean id = "user" class="com.kaishengit.entity.UserDao">
+         <constructor-arg name="userService" ref="userService"/>
+     </bean>
+     <bean id = "userService" class = "com.kaishengit.service.UserService">
+         <constructor-arg name="userDao" ref="user"/>
+     </bean>
+
+-->
+    <bean name = "userDao" class="com.kaishengit.entity.UserDao"/>
+    <bean name="userService" class="com.kaishengit.service.UserService">
+    <constructor-arg name = "userDao" ref="userDao"/>
+</bean>
+
+
+
+  <!--  <bean id = "userService" class = "com.kaishengit.service.UserService">
+        <constructor-arg index = "0" ref="userDao"/>
+    <bean id = "userService" class = "com.kaishengit.service.UserService">
+        <constructor-arg type = "com.kaishengit.entity.UserDao" ref="userDao"/>
+    </bean>-->
+
+
+</beans>
