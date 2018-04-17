@@ -1,0 +1,3 @@
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:17:34:14 +0800] "GET /kaola?productName=%E5%8D%81%E5%A4%A7&place=%E4%B8%AD%E5%9B%BD&minPrice=10000&maxPrice=&typeId= HTTP/1.1" 200 4937 http-bio-8080-exec-1 1523
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:17:34:14 +0800] "GET /static/js/jquery-1.4.4.min.js HTTP/1.1" 304 - http-bio-8080-exec-2 310
+0:0:0:0:0:0:0:1 - - [11/Apr/2018:17:34:20 +0800] "GET /kaola?productName=%E6%89%8B%E6%9C%BA&place=%E4%B8%AD%E5%9B%BD&minPrice=10000&maxPrice=&typeId= HTTP/1.1" 200 5948 http-bio-8080-exec-3 171

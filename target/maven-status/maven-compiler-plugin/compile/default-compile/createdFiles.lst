@@ -1,0 +1,8 @@
+com\kaishengit\entity\KaolaType.class
+com\kaishengit\service\KaolaService.class
+com\kaishengit\mapper\KaolaMapper.class
+com\kaishengit\service\imp\KaolaServiceimp.class
+com\kaishengit\exception\NotFoundException.class
+com\kaishengit\entity\Kaola.class
+com\kaishengit\controller\KaolaController.class
+com\kaishengit\mapper\KaolaTypeMapper.class
