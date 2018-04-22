@@ -61,20 +61,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${ticketInRecords}" var="ticketInRecords">
+                        <c:forEach items="${ticketInRecords}" var="ticketInRecord">
                             <tr>
                                 <td>${today}</td>
-                                <td>${ticketInRecords.content}</td>
-                                <td>${ticketInRecords.beginTicketNum}</td>
-                                <td>${ticketInRecords.endTicketNum}</td>
-                                <td>${ticketInRecords.totalNum}</td>
-                                <td>${ticketInRecords.accountName}</td>
+                                <td>${ticketInRecord.content}</td>
+                                <td>${ticketInRecord.beginTicketNum}</td>
+                                <td>${ticketInRecord.endTicketNum}</td>
+                                <td>${ticketInRecord.totalNum}</td>
+                                <td>${ticketInRecord.accountName}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-xs updateLink" href="/ticket/store/${ticketInRecords.id}/edit" title="编辑"><i class="fa fa-pencil"></i></a>
-                                    <a class="btn btn-danger btn-xs delLink" rel="${ticketInRecords.id}" href="javascript:;" title="删除"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-primary btn-xs updateLink" href="/ticket/store/${ticketInRecord.id}/edit" title="编辑"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-danger btn-xs delLink" rel="${ticketInRecord.id}" href="javascript:;" title="删除"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         </c:forEach>
+                        <%--分页需要--%>
+                        <ul id="pagination-demo" class="pagination pull-right"></ul>
                         </tbody>
                     </table>
 
@@ -91,9 +93,25 @@
 <script src="/static/plugins/treegrid/js/jquery.treegrid.min.js"></script>
 <script src="/static/plugins/treegrid/js/jquery.treegrid.bootstrap3.js"></script>
 <script src="/static/plugins/layer/layer.js"></script>
+<script src="/static/bootstrap/js/jquery.twbsPaginationjs"></script>
 <script>
     $(function () {
         $('.tree').treegrid();
+
+
+        //分页
+        $('#pagination-demo').twbsPagination({
+            totalPages: ${pageInfo.pages},
+            visiblePages: 10,
+            first:'首页',
+            last:'末页',
+            prev:'←',
+            next:'→',
+            href:"?productName="+encodeURIComponent('${param.productName}')+"&place="+encodeURIComponent('${param.place}')
+            +"&minPrice=${param.minPrice}&maxPrice=${param.maxPrice}&typeId=&{param.typeId}&p={{number}}"
+        });
+
+
 
         $(".delLink").click(function(){
             var id = $(this).attr("rel");

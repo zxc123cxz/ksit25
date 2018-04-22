@@ -123,8 +123,8 @@ public class TicketServiceimpl implements TicketinRecordService {
     public PageInfo<TicketInRecord> findPageTicketInRecord(Integer pageNo) {
         PageHelper.startPage(pageNo,5);
         TicketInRecordExample ticketInRecordExample = new TicketInRecordExample();
-        List<TicketInRecord> ticketInRecords = ticketInRecordMapper.selectByExample(ticketInRecordExample);
-        return new PageInfo<>(ticketInRecords);
+        List<TicketInRecord> ticketInRecord = ticketInRecordMapper.selectByExample(ticketInRecordExample);
+        return new PageInfo<>(ticketInRecord);
     }
 
     /*

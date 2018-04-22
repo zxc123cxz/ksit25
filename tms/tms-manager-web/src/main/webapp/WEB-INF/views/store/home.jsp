@@ -73,7 +73,10 @@
 
                         </c:forEach>
                         </tbody>
+
                     </table>
+                    <%--共${pageInfo.total}条数据--%>
+                    <ul id="pagination-demo" class="pagination pull-right"></ul>
                 </div>
             </div>
         </section>
@@ -88,9 +91,24 @@
 <script src="/static/plugins/treegrid/js/jquery.treegrid.min.js"></script>
 <script src="/static/plugins/treegrid/js/jquery.treegrid.bootstrap3.js"></script>
 <script src="/static/plugins/layer/layer.js"></script>
+<script src="/static/bootstrap/js/jquery-1.4.4.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/bootstrap/js/jquery.twbsPagination.min.js"></script>
 <script>
     $(function () {
         $('.tree').treegrid();
+
+        //分页
+        $('#pagination-demo').twbsPagination({
+            totalPages: ${pageInfo.pages},
+            visiblePages: 10,
+            first:'首页',
+            last:'末页',
+            prev:'←',
+            next:'→',
+            href:"?="+encodeURIComponent('${param.productName}')+"&place="+encodeURIComponent('${param.place}')
+            +"&minPrice=${param.minPrice}&maxPrice=${param.maxPrice}&typeId=&{param.typeId}&p={{number}}"
+        });
 
         $(".delLink").click(function(){
             var id = $(this).attr("rel");

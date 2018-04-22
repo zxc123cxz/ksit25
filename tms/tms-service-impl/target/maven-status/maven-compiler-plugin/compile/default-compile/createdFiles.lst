@@ -1,6 +1,7 @@
 com\kaishengit\tms\mapper\AccountRolesMapper.class
 com\kaishengit\tms\mapper\StoreAccountMapper.class
 com\kaishengit\tms\serviceimpl\PermissionServiceimpl.class
+com\kaishengit\tms\fileStore\QiniuStore.class
 com\kaishengit\tms\mapper\PermissionMapper.class
 com\kaishengit\tms\serviceimpl\TicketServiceimpl.class
 com\kaishengit\tms\mapper\RolesMapper.class

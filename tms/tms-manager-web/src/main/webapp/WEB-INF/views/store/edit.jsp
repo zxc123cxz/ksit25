@@ -127,7 +127,7 @@
         uploader.on( 'uploadSuccess', function( file,response ) {
             $("#userPhoto").html("");
             var fileName = response.key;
-            var $img = $("<img>").attr("src","http://p7f6tjc1h.bkt.clouddn.com/"+fileName+"-preview");
+            var $img = $("<img>").attr("src","http://p7laxwsu7.bkt.clouddn.com/"+fileName+"-preview");
             $img.appendTo($("#userPhoto"));
             //将key存放到隐藏域中
             $("#storeManagerAttachment").val(fileName);
@@ -167,7 +167,7 @@
         uploader2.on( 'uploadSuccess', function( file,response ) {
             $("#storePhoto").html("");
             var fileName = response.key;
-            var $img = $("<img>").attr("src","http://p7f6tjc1h.bkt.clouddn.com/"+fileName+"-preview");
+            var $img = $("<img>").attr("src","http://p7laxwsu7.bkt.clouddn.com/"+fileName+"-preview");
             $img.appendTo($("#storePhoto"));
             //将key存放到隐藏域中
             $("#storeAttachment").val(fileName);

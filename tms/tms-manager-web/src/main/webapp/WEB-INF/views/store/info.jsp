@@ -101,12 +101,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="photo">
-                                <img src="http://p7f6tjc1h.bkt.clouddn.com/${ticketStore.storeManagerAttachment}-preview" alt="">
+                                <img src="http://p7laxwsu7.bkt.clouddn.com/${ticketStore.storeManagerAttachment}-preview" alt="">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="photo">
-                                <img src="http://p7f6tjc1h.bkt.clouddn.com/${ticketStore.storeAttachment}-preview" alt="">
+                                <img src="http://p7laxwsu7.bkt.clouddn.com/${ticketStore.storeAttachment}-preview" alt="">
                             </div>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
         $(function () {
             $(".recover").click(function(){
                 var id = $(this).attr("rel");
-                layer.confirm("确定要禁用吗",function (index) {
+                layer.confirm("确定要恢复吗",function (index) {
                     layer.close(index);
                     $.get("/store/"+id+"/recover").done(function (result) {
                         if(result.status == 'success') {

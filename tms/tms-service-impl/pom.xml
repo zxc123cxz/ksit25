@@ -125,6 +125,14 @@
             <artifactId>guava</artifactId>
         </dependency>
 
+        <!--七牛-->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>7.2.8</version>
+        </dependency>
+
+
         <!--joda date-->
         <dependency>
             <groupId>joda-time</groupId>

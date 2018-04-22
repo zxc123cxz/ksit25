@@ -2,6 +2,7 @@ package com.kaishengit.tms.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Maps;
 import com.kaishengit.tms.TicketinRecordService;
 import com.kaishengit.tms.com.kaishengit.tms.dto.ResponseBean;
 import com.kaishengit.tms.entity.TicketInRecord;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Map;
 
 
 @RequestMapping("/ticket/store")
@@ -28,17 +30,19 @@ public class ticketController {
 
     @GetMapping
     public String home(@RequestParam(name = "p",required = false,defaultValue = "1") Integer pageNo, Model model,
-                       @RequestParam(required = false,defaultValue = "") String create_time,
+                       @RequestParam(required = false,defaultValue = "") String createTime,
                        @RequestParam(required = false,defaultValue = "")String accountName){
 
-
-     //  PageInfo<TicketInRecord> ticketInRecordPageInfo =  ticketinRecordService.findPageTicketInRecord(pageNo);
+        Map<String,Object> ticketInrecord = Maps.newHashMap();
+        ticketInrecord.put("createTime",createTime);
+        ticketInrecord.put("accountName",accountName);
+        PageInfo<TicketInRecord> ticketInRecordPageInfo =  ticketinRecordService.findPageTicketInRecord(pageNo);
        List<TicketInRecord> ticketInRecords = ticketinRecordService.findAllTicketInrecord();
 
         String today = DateTime.now().toString("YYYY-MM-dd");
         model.addAttribute("today",today);
         model.addAttribute("ticketInRecords",ticketInRecords);
-       // model.addAttribute("ticketInRecordPageInfo",ticketInRecordPageInfo);
+        model.addAttribute("ticketInRecordPageInfo",ticketInRecordPageInfo);
         return "ticket/store/home";
     }
 

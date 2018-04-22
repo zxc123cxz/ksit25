@@ -11,6 +11,7 @@ E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\AccountRol
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\RolesMapper.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\AccountLoginLogMapper.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\PermissionMapper.java
+E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\fileStore\QiniuStore.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\serviceimpl\RolesServiceimpl.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\util\ShiroUtil.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\serviceimpl\TicketAccountimpl.java

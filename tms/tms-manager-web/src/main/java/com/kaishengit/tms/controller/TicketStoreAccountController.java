@@ -7,6 +7,7 @@ import com.kaishengit.tms.com.kaishengit.tms.dto.ResponseBean;
 import com.kaishengit.tms.entity.StoreAccount;
 import com.kaishengit.tms.entity.TicketStore;
 import com.kaishengit.tms.exception.ServiceException;
+import com.kaishengit.tms.fileStore.QiniuStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,10 @@ public class TicketStoreAccountController {
 
     @Autowired()
     private TicketAccountService ticketAccountService;
+
+    @Autowired
+    private QiniuStore qiniuStore;
+
 
     @GetMapping("/home")
     public String home(Model model,
@@ -39,10 +44,16 @@ public class TicketStoreAccountController {
         return "store/home";
     }
 
-
+    /*
+     * 获取七牛文件上传
+     * @date 2018/4/22
+     * @param
+     * @return
+     */
     @GetMapping("/new")
     public String New(Model model){
-
+        String upToken = qiniuStore.getUploadToken();
+        model.addAttribute("upToken",upToken);
         return "store/new";
     }
 
@@ -58,6 +69,10 @@ public class TicketStoreAccountController {
 
     @GetMapping("/{id:\\d+}/edit")
     public String edit(@PathVariable Integer id, Model model){
+
+        String upToken = qiniuStore.getUploadToken();
+        model.addAttribute("upToken",upToken);
+
         TicketStore ticketStore = ticketAccountService.FindTicketStoreById(id);
         model.addAttribute("ticketStore",ticketStore);
         return "store/edit";
@@ -68,7 +83,7 @@ public class TicketStoreAccountController {
     public String edit(TicketStore ticketStore,RedirectAttributes redirectAttributes){
         ticketAccountService.update(ticketStore);
         redirectAttributes.addFlashAttribute("message","修改成功");
-        return "redirect:/store/hoome";
+        return "redirect:/store/home";
     }
 
 
