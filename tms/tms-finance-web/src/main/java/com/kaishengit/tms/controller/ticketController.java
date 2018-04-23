@@ -24,7 +24,12 @@ import java.util.Map;
 @Controller
 public class ticketController {
 
-
+    /*
+     *  年票入库
+     * @date 2018/4/23
+     * @param
+     * @return
+     */
    @Autowired
    private TicketinRecordService ticketinRecordService;
 
@@ -62,8 +67,14 @@ public class ticketController {
 
     @PostMapping("/new")
     public String New(TicketInRecord ticketInRecord, RedirectAttributes redirectAttributes){
-        ticketinRecordService.save(ticketInRecord);
-        redirectAttributes.addFlashAttribute("message","入库成功");
+
+        try{
+            ticketinRecordService.save(ticketInRecord);
+            redirectAttributes.addFlashAttribute("message","新增成功");
+
+        }catch(ServiceException e){
+            redirectAttributes.addFlashAttribute("message",e.getMessage());
+        }
         return "redirect:/ticket/store";
     }
 
@@ -84,7 +95,7 @@ public class ticketController {
     public String edit(TicketInRecord ticketInRecord,RedirectAttributes redirectAttributes){
         ticketinRecordService.update(ticketInRecord);
         redirectAttributes.addFlashAttribute("message","修改成功");
-         return "redirect:/ticket/store";
+        return "redirect:/ticket/store";
     }
 
 

@@ -3,6 +3,7 @@ E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\RolesPermi
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\AccountMapper.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\TicketInRecordMapper.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\serviceimpl\PermissionServiceimpl.java
+E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\TicketOutRecordMapper.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\TicketsMapper.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\mapper\TicketStoreMapper.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\serviceimpl\AccountServiceimpl.java
@@ -15,3 +16,4 @@ E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\fileStore\QiniuSt
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\serviceimpl\RolesServiceimpl.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\util\ShiroUtil.java
 E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\serviceimpl\TicketAccountimpl.java
+E:\items\tms\tms-service-impl\src\main\java\com\kaishengit\tms\serviceimpl\TicketOutRecordimpl.java

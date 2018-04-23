@@ -2,5 +2,6 @@ E:\items\tms\tms-finance-web\src\main\java\com\kaishengit\tms\controller\HomeCon
 E:\items\tms\tms-finance-web\src\main\java\com\kaishengit\tms\controller\ticketController.java
 E:\items\tms\tms-finance-web\src\main\java\com\kaishengit\tms\exception\NotFoundException.java
 E:\items\tms\tms-finance-web\src\main\java\com\kaishengit\tms\shiro\ShiroRealm.java
+E:\items\tms\tms-finance-web\src\main\java\com\kaishengit\tms\controller\TicketOutRecordController.java
 E:\items\tms\tms-finance-web\src\main\java\com\kaishengit\tms\shiro\CustomerFilterChainDefinition.java
 E:\items\tms\tms-finance-web\src\main\java\com\kaishengit\tms\exception\ControllerAdviceHander.java

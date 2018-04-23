@@ -3,6 +3,8 @@ package com.kaishengit.tms.mapper;
 import com.kaishengit.tms.entity.Tickets;
 import com.kaishengit.tms.entity.TicketsExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TicketsMapper {
@@ -29,4 +31,10 @@ public interface TicketsMapper {
     int updateByPrimaryKey(Tickets record);
 
     void batchInsert(@Param("tacketList") List<Tickets> ticketsList);
+
+
+    List<Tickets> findByBeginNumAndEndNum(@Param("beginNum") String biginTicketNum,
+                                          @Param("endNum") String endTicketNum);
+
+    Map<String,Long> countByState();
 }

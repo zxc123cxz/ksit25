@@ -7,6 +7,7 @@ import com.kaishengit.tms.entity.*;
 import com.kaishengit.tms.exception.ServiceException;
 import com.kaishengit.tms.mapper.StoreAccountMapper;
 import com.kaishengit.tms.mapper.TicketStoreMapper;
+import com.kaishengit.tms.mapper.TicketsMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,9 @@ public class TicketAccountimpl implements TicketAccountService {
 
     @Autowired
     private StoreAccountMapper storeAccountMapper;
+
+    @Autowired
+    private TicketsMapper ticketsMapper;
 
     private static final Logger logger = LoggerFactory.getLogger(TicketAccountimpl.class);
 
@@ -134,7 +138,7 @@ public class TicketAccountimpl implements TicketAccountService {
     @Override
     public PageInfo<TicketStore> findPageNoTicketStore(Integer pageNo, Map<String, Object> storeMap) {
         //设置每页的数量
-        PageHelper.startPage(pageNo,10);
+        PageHelper.startPage(pageNo,2);
 
         //获取模糊参数
         String storeName = (String) storeMap.get("storeName");
@@ -210,6 +214,19 @@ public class TicketAccountimpl implements TicketAccountService {
 
         logger.info("{},恢复账号",storeAccount);
 
+    }
+
+
+    /*
+     * 查询盘点统计
+     * @date 2018/4/23
+     * @param
+     * @return
+     */
+    @Override
+    public Map<String, Long> findCountTicket() {
+
+        return ticketsMapper.countByState();
     }
 
 

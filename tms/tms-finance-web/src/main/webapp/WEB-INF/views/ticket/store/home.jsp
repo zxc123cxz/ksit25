@@ -33,6 +33,9 @@
 
         <!-- Main content -->
         <section class="content">
+            <c:if test="${not empty message}">
+                <div class="alert alert-success">${message}</div>
+            </c:if>
             <div class="box">
                 <div class="box-body">
                     <form method="get" class="form-inline">
@@ -61,7 +64,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${ticketInRecords}" var="ticketInRecord">
+                        <c:forEach items="${ticketInRecordPageInfo.list}" var="ticketInRecord">
                             <tr>
                                 <td>${today}</td>
                                 <td>${ticketInRecord.content}</td>
@@ -75,11 +78,12 @@
                                 </td>
                             </tr>
                         </c:forEach>
-                        <%--分页需要--%>
-                        <ul id="pagination-demo" class="pagination pull-right"></ul>
-                        </tbody>
-                    </table>
 
+                        </tbody>
+
+                    </table>
+                    <%--分页需要--%>
+                    <ul id="pagination-demo" class="pagination pull-right"></ul>
                 </div>
             </div>
         </section>
@@ -93,23 +97,25 @@
 <script src="/static/plugins/treegrid/js/jquery.treegrid.min.js"></script>
 <script src="/static/plugins/treegrid/js/jquery.treegrid.bootstrap3.js"></script>
 <script src="/static/plugins/layer/layer.js"></script>
-<script src="/static/bootstrap/js/jquery.twbsPaginationjs"></script>
+<%--分页插件--%>
+<script src="/static/plugins/page/jquery.twbsPagination.js"></script>
 <script>
     $(function () {
         $('.tree').treegrid();
 
-
         //分页
         $('#pagination-demo').twbsPagination({
-            totalPages: ${pageInfo.pages},
-            visiblePages: 10,
+            /*分页请注意*/
+            totalPages: ${ticketInRecordPageInfo.pages},
+            visiblePages: 4,
             first:'首页',
             last:'末页',
             prev:'←',
             next:'→',
-            href:"?productName="+encodeURIComponent('${param.productName}')+"&place="+encodeURIComponent('${param.place}')
-            +"&minPrice=${param.minPrice}&maxPrice=${param.maxPrice}&typeId=&{param.typeId}&p={{number}}"
+            //分页请注意
+            href:"?p={{number}}"
         });
+
 
 
 

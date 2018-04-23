@@ -1,3 +1,4 @@
+com\kaishengit\tms\controller\TicketOutRecordController.class
 com\kaishengit\tms\shiro\ShiroRealm.class
 com\kaishengit\tms\exception\NotFoundException.class
 com\kaishengit\tms\controller\HomeController.class

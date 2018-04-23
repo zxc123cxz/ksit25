@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:42:49 +0800] "GET /store/home HTTP/1.1" 302 - http-bio-8080-exec-1 629
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:42:51 +0800] "GET / HTTP/1.1" 200 2998 http-bio-8080-exec-2 1761
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:42:54 +0800] "POST / HTTP/1.1" 302 - http-bio-8080-exec-3 191
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:42:55 +0800] "GET /store/home HTTP/1.1" 200 10574 http-bio-8080-exec-4 1047
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:42:55 +0800] "GET /static/plugins/page/jquery.twbsPagination.js HTTP/1.1" 304 - http-bio-8080-exec-5 18
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:42:57 +0800] "GET /store/home?=&place=&minPrice=&maxPrice=&typeId=&{param.typeId}&p=2 HTTP/1.1" 200 9906 http-bio-8080-exec-6 31
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:42:58 +0800] "GET /store/home?=&place=&minPrice=&maxPrice=&typeId=&{param.typeId}&p=1 HTTP/1.1" 200 10574 http-bio-8080-exec-7 32
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:43:02 +0800] "GET /manage/account HTTP/1.1" 200 18120 http-bio-8080-exec-8 628
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:43:03 +0800] "GET /store/home HTTP/1.1" 200 10574 http-bio-8080-exec-9 22
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:47:29 +0800] "GET /store/home HTTP/1.1" 302 - http-bio-8080-exec-1 2
+0:0:0:0:0:0:0:1 - - [23/Apr/2018:22:47:29 +0800] "GET / HTTP/1.1" 200 2998 http-bio-8080-exec-1 5

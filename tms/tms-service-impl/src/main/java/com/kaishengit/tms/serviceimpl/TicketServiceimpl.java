@@ -6,6 +6,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.kaishengit.tms.TicketinRecordService;
 import com.kaishengit.tms.entity.*;
+import com.kaishengit.tms.exception.ServiceException;
 import com.kaishengit.tms.mapper.TicketInRecordMapper;
 import com.kaishengit.tms.mapper.TicketsMapper;
 import com.kaishengit.tms.TicketinRecordService;
@@ -48,7 +49,7 @@ public class TicketServiceimpl implements TicketinRecordService {
      */
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public void save(TicketInRecord ticketInRecord) {
+    public void save(TicketInRecord ticketInRecord) throws ServiceException {
         //保存年票入库
 
         if(ticketInRecord != null){
@@ -62,7 +63,9 @@ public class TicketServiceimpl implements TicketinRecordService {
             //总票数 = 截至票数 - 起始票数 +1
             BigInteger start = new BigInteger(ticketInRecord.getBeginTicketNum());
             BigInteger end = new BigInteger(ticketInRecord.getEndTicketNum());
-
+            if(start.compareTo(end) >= 0){
+                throw new ServiceException("起始票号不能小于截至票号");
+            }
             BigInteger total = end.subtract(start).add(new BigInteger(String.valueOf(1)));
             ticketInRecord.setTotalNum(total.intValue());
             //内容
@@ -83,6 +86,7 @@ public class TicketServiceimpl implements TicketinRecordService {
                 tickets.setTicketState(Tickets.TICKET_STATE_IN_STORE);
 
                 ticketsList.add(tickets);
+
             }
             //批量增加
             ticketsMapper.batchInsert(ticketsList);
@@ -150,12 +154,27 @@ public class TicketServiceimpl implements TicketinRecordService {
     @Transactional(rollbackFor = RuntimeException.class)
     public void update(TicketInRecord ticketInRecord) {
 
+
+
+
+
+
+
+
         if(ticketInRecord != null){
 
+            //判断起始值是否大于结束值
+            BigInteger start = new BigInteger(ticketInRecord.getBeginTicketNum());
+            BigInteger end = new BigInteger(ticketInRecord.getEndTicketNum());
+            if(start.compareTo(end) >= 0){
+                throw new ServiceException("起始号必须小于截至号");
+            }
             TicketInRecord ticks  = ticketInRecordMapper.selectByPrimaryKey(ticketInRecord.getId());
             System.out.println("ticks"+ticks);
+
+
             //获取原来的数据
-            BigInteger start = new BigInteger(ticks.getBeginTicketNum());
+           // BigInteger start = new BigInteger(ticks.getBeginTicketNum());
             //BigInteger end = new BigInteger(ticks.getEndTicketNum());
 
             int total = ticks.getTotalNum();
@@ -210,6 +229,16 @@ public class TicketServiceimpl implements TicketinRecordService {
     @Transactional(rollbackFor = RuntimeException.class)
     public void Delete(Integer id) {
 
+        /* TicketsExample ticketsExample = new TicketsExample();
+        /*ticketsExample.createCriteria().andTicketNumGreaterThanOrEqualTo(ticketInRecord.getBeginTicketNum())
+                                        .andTicketNumLessThanOrEqualTo(ticketInRecord.getEndTicketNum())
+                                        .andTicketStateEqualTo(Tickets.TICKET_STATE_IN_STORE);
+        List<Tickets> ticketsList = ticketsMapper.selectByExample(ticketsExample);
+        if(ticketsList.size() != total){
+            throw new ServiceException("数据库发生修改不能删除");
+        }*/
+
+
         //删除年票记录Tickets //根据票号删除
         TicketInRecord ticketInRecord = ticketInRecordMapper.selectByPrimaryKey(id);
         int total = ticketInRecord.getTotalNum();
@@ -227,6 +256,9 @@ public class TicketServiceimpl implements TicketinRecordService {
         logger.info("{}, 删除年票记录",ticketInRecord.getAccountName());
 
     }
+
+
+
 
 
 }

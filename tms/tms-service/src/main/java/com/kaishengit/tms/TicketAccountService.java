@@ -29,4 +29,6 @@ public interface TicketAccountService {
     void findByIdLock(Integer id) throws ServiceException;
 
     void findByIdRocover(Integer id);
+
+    Map<String,Long> findCountTicket();
 }
