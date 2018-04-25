@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="TmsService"/>
+
+    <dubbo:registry address="zookeeper://192.168.1.236:2181"/>
+
+    <dubbo:protocol host="192.168.1.236" port="20880"/>
+
+    <!--发布服务-->
+    <dubbo:service interface="com.kaishengit.tms.Accountservice" ref="accountServiceimpl"/>
+    <dubbo:service interface="com.kaishengit.tms.PermissionService" ref="permissionServiceimpl"/>
+    <dubbo:service interface="com.kaishengit.tms.RolesService" ref="rolesServiceimpl"/>
+    <dubbo:service interface="com.kaishengit.tms.TicketAccountService" ref="ticketAccountimpl"/>
+    <dubbo:service interface="com.kaishengit.tms.TicketinRecordService" ref="ticketServiceimpl"/>
+    <dubbo:service interface="com.kaishengit.tms.TicketOutRecordService" ref="ticketOutRecordimpl"/>
+
+
+
+</beans>

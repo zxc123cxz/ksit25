@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:41 +0800] "GET / HTTP/1.1" 200 2995 http-bio-8081-exec-1 1751
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:42 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8081-exec-7 15
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:45 +0800] "POST / HTTP/1.1" 302 - http-bio-8081-exec-8 315
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:46 +0800] "GET /home HTTP/1.1" 200 5988 http-bio-8081-exec-9 765
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:48 +0800] "GET /ticket/store HTTP/1.1" 200 13454 http-bio-8081-exec-10 768
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:48 +0800] "GET /static/plugins/page/jquery.twbsPagination.js HTTP/1.1" 304 - http-bio-8081-exec-1 74
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:50 +0800] "GET /ticket/out/home HTTP/1.1" 200 13117 http-bio-8081-exec-1 597
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:50 +0800] "GET /static/bootstrap/js/jquery.twbsPaginationjs HTTP/1.1" 304 - http-bio-8081-exec-1 70
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:52 +0800] "GET /ticket/chart/home HTTP/1.1" 200 8114 http-bio-8081-exec-1 374
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:53 +0800] "GET /finance/ticket/home HTTP/1.1" 200 8304 http-bio-8081-exec-1 511
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:54 +0800] "GET /finance/ticket/home?state=%E5%B7%B2%E6%94%AF%E4%BB%98 HTTP/1.1" 200 12757 http-bio-8081-exec-7 38
+0:0:0:0:0:0:0:1 - - [25/Apr/2018:12:42:56 +0800] "GET /finance/ticket/home?p=2 HTTP/1.1" 200 8304 http-bio-8081-exec-7 17
