@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Date;
 import java.util.List;
@@ -186,18 +185,20 @@ public class TicketAccountimpl implements TicketAccountService {
      * @return
      */
     @Override
-    public void findByIdLock(Integer id) throws  ServiceException {
+    public TicketStore findByIdLock(Integer id) throws  ServiceException {
         if(id != null && StringUtils.isNotEmpty("id")){
             //根据id查询数据
             StoreAccount storeAccount = storeAccountMapper.selectByPrimaryKey(id);
+            if(storeAccount != null){
+                storeAccount.setStoreState(StoreAccount.DISA_BLE);
 
-            storeAccount.setStoreState(StoreAccount.DISA_BLE);
+                storeAccountMapper.updateByPrimaryKeySelective(storeAccount);
 
-            storeAccountMapper.updateByPrimaryKeySelective(storeAccount);
-
-            logger.info("{},禁用账号",storeAccount);
+                logger.info("{},禁用账号",storeAccount);
+            }
         }
 
+        return null;
     }
     /*
      *  恢复售票账号
@@ -228,6 +229,57 @@ public class TicketAccountimpl implements TicketAccountService {
 
         return ticketsMapper.countByState();
     }
+
+    @Override
+    public TicketStore findById(Integer id) {
+
+
+        return ticketStoreMapper.selectByPrimaryKey(id);
+    }
+
+
+
+    /*
+     *  根据手机号 查询相关的数据（StoreAccocunt）用户登陆
+     * @date 2018/4/28
+     * @param
+     * @return
+     */
+    @Override
+    public StoreAccount findByMobiles(String userMobile) {
+        StoreAccountExample storeAccountExample = new StoreAccountExample();
+        storeAccountExample.createCriteria().andStoreAccountEqualTo(userMobile);
+
+        List<StoreAccount> storeAccountList = storeAccountMapper.selectByExample(storeAccountExample);
+        logger.info("{}",storeAccountList);
+        StoreAccount storeAccount = null;
+        if(storeAccountList !=null && !storeAccountList.isEmpty()){
+
+                storeAccount = storeAccountList.get(0);
+                return storeAccount;
+        }
+          logger.info("{},查询成功",storeAccountList.get(0));
+
+        return null;
+    }
+
+
+
+
+
+    /*
+     * 根据id 查询销售点年票的出售记录
+     * @date 2018/4/28
+     * @param
+     * @return
+     */
+    @Override
+    public Map<String, Long> findcountTicketStore(Integer id) {
+        return ticketsMapper.countByStateAndStoreAccountId(id);
+    }
+
+
+
 
 
     /*

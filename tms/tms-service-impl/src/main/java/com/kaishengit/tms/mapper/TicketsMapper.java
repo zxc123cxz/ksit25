@@ -37,4 +37,6 @@ public interface TicketsMapper {
                                           @Param("endNum") String endTicketNum);
 
     Map<String,Long> countByState();
+
+    Map<String,Long> countByStateAndStoreAccountId(Integer id);
 }

@@ -7,12 +7,15 @@ com\kaishengit\tms\mapper\RolesMapper.class
 com\kaishengit\tms\mapper\AccountMapper.class
 com\kaishengit\tms\mapper\TicketsMapper.class
 com\kaishengit\tms\mapper\AccountLoginLogMapper.class
+com\kaishengit\tms\mapper\CustomerMapper.class
 com\kaishengit\tms\mapper\TicketStoreMapper.class
+com\kaishengit\tms\mapper\TicketOrderMapper.class
 com\kaishengit\tms\mapper\TicketOutRecordMapper.class
 com\kaishengit\tms\App.class
 com\kaishengit\tms\mapper\RolesPermissionMapper.class
 com\kaishengit\tms\serviceimpl\AccountServiceimpl.class
 com\kaishengit\tms\serviceimpl\TicketOutRecordimpl.class
+com\kaishengit\tms\serviceimpl\CustomerServiceimpl.class
 com\kaishengit\tms\mapper\TicketInRecordMapper.class
 com\kaishengit\tms\serviceimpl\TicketAccountimpl.class
 com\kaishengit\tms\util\ShiroUtil.class

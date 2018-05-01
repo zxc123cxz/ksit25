@@ -15,7 +15,9 @@
         <option value="$PROJECT_DIR$/tms-finance-web/pom.xml" />
         <option value="$PROJECT_DIR$/tms-commons/pom.xml" />
         <option value="$PROJECT_DIR$/tms-manager-web/pom.xml" />
+        <option value="$PROJECT_DIR$/tms-sales-web/pom.xml" />
       </list>
     </option>
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

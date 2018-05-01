@@ -28,9 +28,16 @@ public interface TicketAccountService {
 
     StoreAccount FindStoreAccount(Integer id);
 
-    void findByIdLock(Integer id) throws ServiceException;
+    TicketStore findByIdLock(Integer id) throws ServiceException;
 
     void findByIdRocover(Integer id);
 
     Map<String,Long> findCountTicket();
+
+    TicketStore findById(Integer id);
+
+    StoreAccount findByMobiles(String userMobile);
+
+
+    Map<String,Long> findcountTicketStore(Integer id);
 }

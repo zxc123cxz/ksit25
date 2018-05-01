@@ -1,6 +1,9 @@
 package com.kaishengit.tms.controller;
 
 import com.kaishengit.tms.Accountservice;
+import com.kaishengit.tms.TicketAccountService;
+import com.kaishengit.tms.entity.TicketStore;
+import com.kaishengit.tms.shiro.ShiroUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
@@ -8,11 +11,13 @@ import org.apache.shiro.web.util.SavedRequest;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -20,6 +25,11 @@ public class HomeController {
     @Autowired
     private Accountservice accountservice;
 
+    @Autowired
+    private ShiroUtil shiroUtil;
+
+    @Autowired
+    private TicketAccountService ticketAccountService;
     @GetMapping("/")
     public String index(){
         Subject subject = SecurityUtils.getSubject();
@@ -88,8 +98,13 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String home(){
-         return "home";
+    public String home(Model model){
+        TicketStore ticketStore = shiroUtil.getCurrentAccount();
+
+        Map<String,Long> countResult = ticketAccountService.findcountTicketStore(ticketStore.getId());
+
+        model.addAttribute("resultMap",countResult);
+        return "home";
     }
 
     @GetMapping("/401")

@@ -45,10 +45,19 @@ public class Tickets implements Serializable {
      */
     private Date ticketVilidityEnd;
 
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
     /**
+
      * 顾客id
      */
-    private Long customerId;
+    private Integer customerId;
 
     private static final long serialVersionUID = 1L;
 
@@ -139,9 +148,7 @@ public class Tickets implements Serializable {
         this.ticketVilidityEnd = ticketVilidityEnd;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
+
 
     @Override
     public String toString() {
@@ -160,7 +167,5 @@ public class Tickets implements Serializable {
                 '}';
     }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+
 }

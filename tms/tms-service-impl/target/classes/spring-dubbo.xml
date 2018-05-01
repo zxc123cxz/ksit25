@@ -5,9 +5,8 @@
 
     <dubbo:application name="TmsService"/>
 
-    <dubbo:registry address="zookeeper://192.168.1.236:2181"/>
+    <dubbo:registry address="zookeeper://192.168.1.129:2181"/>
 
-    <dubbo:protocol host="192.168.1.236" port="20880"/>
 
     <!--发布服务-->
     <dubbo:service interface="com.kaishengit.tms.Accountservice" ref="accountServiceimpl"/>
@@ -16,6 +15,7 @@
     <dubbo:service interface="com.kaishengit.tms.TicketAccountService" ref="ticketAccountimpl"/>
     <dubbo:service interface="com.kaishengit.tms.TicketinRecordService" ref="ticketServiceimpl"/>
     <dubbo:service interface="com.kaishengit.tms.TicketOutRecordService" ref="ticketOutRecordimpl"/>
+    <dubbo:service interface="com.kaishengit.tms.CustomerService" ref="customerServiceimpl"/>
 
 
 

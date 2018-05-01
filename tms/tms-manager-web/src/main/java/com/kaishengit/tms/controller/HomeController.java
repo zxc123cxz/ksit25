@@ -27,8 +27,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private Accountservice accountservice;
 
     @GetMapping("/")
     public String index(){
@@ -61,7 +59,8 @@ public class HomeController {
      *
      */
     @PostMapping("/")
-    public String AccountLogin(String accountMobile, String password,
+    public String AccountLogin(String accountMobile,
+                               String password,
                                HttpServletRequest request,
                                String rememberMe,
                                RedirectAttributes redirectAttributes) {

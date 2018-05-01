@@ -9,6 +9,7 @@
         <module name="tms-commons" />
         <module name="tms-finance-web" />
         <module name="tms-manager-web" />
+        <module name="tms-sales-web" />
         <module name="tms-service" />
         <module name="tms-service-impl" />
       </profile>
